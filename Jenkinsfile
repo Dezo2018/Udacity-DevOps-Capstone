@@ -13,7 +13,7 @@ pipeline {
         }
 
         stage('Lint Code'){
-            steps {
+            steps {us-east-2
                 sh "bash ./run_pylint.sh"
             }
         }
@@ -21,7 +21,7 @@ pipeline {
         stage('Set K8S Context'){
             steps {
                 withAWS(credentials:'aws-credentials'){
-                    sh "kubectl config set-context arn:aws:eks:us-west-1:526037358249:cluster/production"
+                    sh "kubectl config set-context arn:aws:eks:us-east-2:526037358249:cluster/production"
                 }
             }
         }
